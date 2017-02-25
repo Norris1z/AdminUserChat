@@ -19,7 +19,8 @@ class CreateAdminUserChatTable extends Migration
             $table->string('recipient');
             $table->string('message');
             $table->string('message_key')->unique();
-            $table->string('universal_key')->unique();
+            $table->boolean('deleted_by_admin')->default(false);
+            $table->boolean('deleted_by_user')->default(false);
             $table->timestamps();
         });
     }

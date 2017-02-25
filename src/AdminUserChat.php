@@ -54,10 +54,11 @@ class AdminUserChat
         }
     }
 
-    public function send($id,$message)
+    public function send($sender,$recipient,$message)
     {
         DB::insert('insert into '.config($this->configFileName.'.database').
-            '(sender,recipient,message,message_key,universal_key)');
+            '(sender,recipient,message,message_key,deleted_by_admin,deleted_by_user) values (?, ?, ?, ?, ?)',
+            [$sender,$recipient,$message,md5(str_random().time()),false,false]);
         return $this;
     }
 }
