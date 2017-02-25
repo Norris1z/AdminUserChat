@@ -23,6 +23,6 @@ class AdminUserChatServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->make('Norris1z\AdminUserChat\AdminUserChat');
     }
 }
