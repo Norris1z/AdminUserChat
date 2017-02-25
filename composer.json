@@ -1,0 +1,13 @@
+{
+  "name": "norris1z/admin_user_chat",
+  "description": "A simple chat between users and an admin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Norris Oduro",
+      "email": "norrisjibril@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {}
+}
