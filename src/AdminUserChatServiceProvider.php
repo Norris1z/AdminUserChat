@@ -14,6 +14,7 @@ class AdminUserChatServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([__DIR__.'/config/admin_user_chat.php' => config_path('admin_user_chat.php')]);
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
     }
 
     /**
