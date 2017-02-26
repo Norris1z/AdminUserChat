@@ -2,6 +2,8 @@
   "name": "norris1z/admin_user_chat",
   "description": "A simple chat between users and an admin",
   "license": "MIT",
+  "type": "library",
+  "keywords": ["norris1z","laravel","chat","admin_user"],
   "authors": [
     {
       "name": "Norris Oduro",
