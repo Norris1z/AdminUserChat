@@ -1,5 +1,11 @@
 # Laravel - AdminUserChat
 A Laravel chat package to facilitate chatting between users and administrators
+
+[![Latest Stable Version](https://poser.pugx.org/norris1z/admin_user_chat/v/stable)](https://packagist.org/packages/norris1z/admin_user_chat)
+[![Total Downloads](https://poser.pugx.org/norris1z/admin_user_chat/downloads)](https://packagist.org/packages/norris1z/admin_user_chat)
+[![Latest Unstable Version](https://poser.pugx.org/norris1z/admin_user_chat/v/unstable)](https://packagist.org/packages/norris1z/admin_user_chat)
+[![License](https://poser.pugx.org/norris1z/admin_user_chat/license)](https://packagist.org/packages/norris1z/admin_user_chat)
+
 ## Installation
 
 Begin by installing this package through Composer. Run this command from the Terminal:
