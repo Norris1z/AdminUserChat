@@ -28,14 +28,25 @@ class AdminUserChat
      * @param $sender_id
      * @param $message
      */
-    public function sendMessageToAdministrators($sender_id,$message)
+    public function sendMessageToAllAdministrators($sender_id,$message)
     {
         foreach ($this->getAdministrators() as $administrator)
         {
-          //  $this->sendToAdmin()->sendToUser();
+            $this->send($sender_id,$this->validateAdminID($administrator),$message);
         }
     }
 
+    /**
+     *  Sends a message to the administrator
+     * @param $sender
+     * @param $recipient
+     * @param $message
+     * @return mixed
+     */
+    public function sendMessageToAdministrator($sender,$recipient,$message)
+    {
+        return $this->send($sender,$recipient,$message);
+    }
     /**
      * Check if the provided parameter is an object or a numeric value
      *  it returns a call to the id property on the param if it is an object
@@ -54,11 +65,45 @@ class AdminUserChat
         }
     }
 
+    /**
+     * This inserts the message to the DB
+     * @param $sender
+     * @param $recipient
+     * @param $message
+     * @return mixed
+     */
     public function send($sender,$recipient,$message)
     {
-        DB::insert('insert into '.config($this->configFileName.'.database').
-            '(sender,recipient,message,message_key,deleted_by_admin,deleted_by_user) values (?, ?, ?, ?, ?)',
+        return DB::insert('insert into '.config($this->configFileName.'.database').
+            '(sender,recipient,message,message_key,deleted_by_admin,deleted_by_user) values (?, ?, ?, ?, ?, ?)',
             [$sender,$recipient,$message,md5(str_random().time()),false,false]);
+    }
+
+    /**
+     *  Sends message to a single user
+     * @param $sender
+     * @param $recipient
+     * @param $message
+     * @return mixed
+     */
+    public function sendMessageToUser($sender,$recipient,$message)
+    {
+        return $this->send($sender,$recipient,$message);
+    }
+
+    /**
+     *  Sends message to all users
+     * @param $sender
+     * @param $users
+     * @param $message
+     * @return $this
+     */
+    public function sendMessageToAllUsers($sender,$users,$message)
+    {
+        foreach ($users as $user)
+        {
+            $this->send($sender,$user,$message);
+        }
         return $this;
     }
 }

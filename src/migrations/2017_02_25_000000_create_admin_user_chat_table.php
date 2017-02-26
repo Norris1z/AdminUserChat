@@ -15,8 +15,14 @@ class CreateAdminUserChatTable extends Migration
     {
         Schema::create('admin_user_chat', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('sender');
-            $table->string('recipient');
+            $table->integer('sender');
+            $table->integer('recipient');
+            /*
+            $table->foreign('sender')
+                ->references('id')
+                ->on(config('admin_user_chat.table'))
+                ->onDelete('cascade');
+            */
             $table->string('message');
             $table->string('message_key')->unique();
             $table->boolean('deleted_by_admin')->default(false);
